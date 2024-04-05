@@ -11,6 +11,7 @@ WORKDIR /api
 
 # RailsアプリケーションのGem依存関係をインストール
 # COPY Gemfile Gemfile.lock ./
+COPY Gemfile ./
 # RUN bundle install
 
 # コンテナのポートを公開（Railsのデフォルトポート：3000）
