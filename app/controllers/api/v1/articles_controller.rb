@@ -57,6 +57,17 @@ module Api
         end
       end
 
+      def delete
+        article = Article.find(params[:id])
+        article.delete
+
+        render json: {
+          status: "SUCCESS",
+          message: "Deleted article",
+          data: article
+        }
+      end
+
       private
 
       def set_article

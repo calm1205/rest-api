@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get "/article/:id", to: "articles#show"
       post "article", to: "articles#create"
       put "article/:id", to: "articles#update"
+      delete "article/:id", to: "articles#delete"
     end
   end
 end
