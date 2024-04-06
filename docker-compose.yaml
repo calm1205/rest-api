@@ -27,3 +27,15 @@ services:
       MYSQL_DATABASE: myapp_development
     ports:
       - "3306:3306"
+
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: rest-api-swagger-ui
+    platform: linux/amd64
+    environment:
+      SWAGGER_JSON: /swagger.json
+      PORT: 3001
+    volumes:
+      - ./app/controllers/api/v1/swagger.json:/swagger.json
+    ports:
+      - "3001:3001"

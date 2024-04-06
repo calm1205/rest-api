@@ -1,0 +1,152 @@
+{
+  "info": {
+    "title": "rest-api rails",
+    "version": "0.0.1"
+  },
+  "swagger": "2.0",
+  "produces": ["application/json"],
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "paths": {
+    "/v1/articles": {
+      "get": {
+        "description": "article entityを全て取得",
+        "responses": {
+          "200": {
+            "description": "get article",
+            "schema": {
+              "$ref": "#/definitions/articleEntities"
+            }
+          },
+          "404": {
+            "description": "articleが存在しない"
+          }
+        }
+      },
+      "post": {
+        "description": "articleの追加",
+        "parameters": [
+          {
+            "name": "article",
+            "in": "body",
+            "description": "articleのリクエスト",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/articleEntity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "post article",
+            "schema": {
+              "$ref": "#/definitions/articleEntity"
+            }
+          }
+        }
+      }
+    },
+    "/v2/article/{id}": {
+      "get": {
+        "description": "article(単体)の取得",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "article id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get article",
+            "schema": {
+              "$ref": "#/definitions/articleEntity"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "articleの更新",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "article id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "article",
+            "in": "body",
+            "description": "articleのリクエスト",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/articleEntity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "put article",
+            "schema": {
+              "$ref": "#/definitions/articleEntity"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "articleの削除",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "article id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "delete article",
+            "schema": {
+              "$ref": "#/definitions/articleEntity"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "articleEntity": {
+      "description": "記事",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "description": "記事を一意に判定するid"
+        },
+        "name": {
+          "type": "string",
+          "description": "記事名"
+        },
+        "body": {
+          "type": "string",
+          "description": "記事内容"
+        }
+      }
+    },
+    "articleEntities": {
+      "description": "記事の配列",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/articleEntity"
+      }
+    }
+  }
+}
