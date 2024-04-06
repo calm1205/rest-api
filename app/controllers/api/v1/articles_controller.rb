@@ -24,7 +24,7 @@ module Api
       def create
         article = Article.new(article_params)
 
-        if article.save
+        if article.save!
           render json: {
             status: "SUCCESS",
             message: "Saved article",
@@ -34,6 +34,24 @@ module Api
           render json: {
             status: "ERROR",
             message: "Article not saved",
+            data: article.errors
+          }
+        end
+      end
+
+      def update
+        article = Article.find(params[:id])
+
+        if article.update!(article_params)
+          render json: {
+            status: "SUCCESS",
+            message: "Updated article",
+            data: article
+          }
+        else
+          render json: {
+            status: "ERROR",
+            message: "Article not updated",
             data: article.errors
           }
         end
