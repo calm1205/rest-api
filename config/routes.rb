@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       # root "posts#index"
       get "/articles", to: "articles#index"
       get "/article/:id", to: "articles#show"
+      post "article", to: "articles#create"
     end
   end
 end
