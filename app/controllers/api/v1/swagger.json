@@ -46,7 +46,7 @@
         }
       }
     },
-    "/v2/article/{id}": {
+    "/v1/article/{id}": {
       "get": {
         "description": "article(単体)の取得",
         "parameters": [
