@@ -25,7 +25,8 @@
             "in": "query",
             "description": "ソートするカラム",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "enum": ["id", "created_at", "updated_at"]
           }
         ],
         "responses": {
