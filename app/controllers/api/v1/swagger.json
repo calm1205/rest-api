@@ -11,6 +11,23 @@
     "/v1/articles": {
       "get": {
         "description": "article entityを全て取得",
+        "parameters": [
+          {
+            "name": "order",
+            "in": "query",
+            "description": "asc or desc",
+            "required": false,
+            "type": "string",
+            "enum": ["asc", "desc"]
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "ソートするカラム",
+            "required": false,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "get article",
