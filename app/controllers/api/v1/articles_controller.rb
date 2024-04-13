@@ -6,6 +6,14 @@ module Api
 
       def index
         articles = Article.all
+        order = params[:order]
+        order_by = params[:order_by]
+
+        if order_by
+          order = "asc" if order.nil?
+          articles = articles.order("#{order_by} #{order}")
+        end
+        
         render json: {
           status: "SUCCESS",
           message: "Loaded articles",
