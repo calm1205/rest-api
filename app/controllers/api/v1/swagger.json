@@ -156,6 +156,16 @@
         "body": {
           "type": "string",
           "description": "記事内容"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "記事の作成日時"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "記事の更新日時"
         }
       }
     },
