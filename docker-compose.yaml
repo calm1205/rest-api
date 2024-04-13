@@ -22,6 +22,8 @@ services:
     image: mysql:8.0.26
     container_name: rest-api-db
     platform: linux/amd64
+    volumes:
+      - mysqldata:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: myapp_development
@@ -39,3 +41,7 @@ services:
       - ./app/controllers/api/v1/swagger.json:/swagger.json
     ports:
       - "3001:3001"
+
+volumes:
+  mysqldata:
+    driver: local
