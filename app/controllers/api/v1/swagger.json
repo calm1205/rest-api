@@ -64,12 +64,12 @@
         }
       }
     },
-    "/v1/article/{id}": {
+    "/v1/article/{article_id}": {
       "get": {
         "description": "article(単体)の取得",
         "parameters": [
           {
-            "name": "id",
+            "name": "article_id",
             "in": "path",
             "description": "article id",
             "required": true,
@@ -90,7 +90,7 @@
         "description": "articleの更新",
         "parameters": [
           {
-            "name": "id",
+            "name": "article_id",
             "in": "path",
             "description": "article id",
             "required": true,
@@ -120,7 +120,7 @@
         "description": "articleの削除",
         "parameters": [
           {
-            "name": "id",
+            "name": "article_id",
             "in": "path",
             "description": "article id",
             "required": true,
