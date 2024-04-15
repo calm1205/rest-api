@@ -79,7 +79,8 @@ module Api
       private
 
       def set_article
-        @article = Article.find(params[:article_id])
+        puts params
+        @article = Article.find(params[:id])
       end
 
       def article_params
