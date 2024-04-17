@@ -79,8 +79,14 @@ module Api
       private
 
       def set_article
-        puts params
         @article = Article.find(params[:id])
+
+      rescue ActiveRecord::RecordNotFound
+        render json: {
+          status: "Not Found Error",
+          message: "Article not found",
+        }, status: 404
+
       end
 
       def article_params
